@@ -11,7 +11,7 @@
   Converts declarations of `real`, `double precision`, `int`, and `integer` to `type(hyperdual)`:
   - Supports `real(8)` / `real(kind=8)` / `double precision` / `int(4)`, etc.
 
-- **📦 Initialization Conversion**
+- **Initialization Conversion**
   - **Scalars**
     ```fortran
     real(8) :: scalar = 1.0d0
