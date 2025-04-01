@@ -1,5 +1,4 @@
 # Hyperdualize
-# Hyperdualize Fortran Converter
 
 **Hyperdualize** is a Python script that converts Fortran source code by replacing standard numeric type declarations (e.g., `real`, `double precision`, `int`, `integer`) with a custom type `type(hyperdual)`. It also converts variable initializations—including scalars and arrays—to calls to the `hyperdual` constructor and automatically inserts a `use HDMod` statement into modules, programs, subroutines, or functions that need it.
 
