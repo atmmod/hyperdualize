@@ -65,7 +65,34 @@ To convert a Fortran file using **Hyperdualize**, follow these steps:
 4. The script will generate a new file
    ```bash
    test_hd.f90
-   ```
+
+
+## Known Issues
+1. The hyperdualize code doesn't work well with user-defined precisions. For example: 
+```Fortran
+dp = KIND(1.0D0)
+real(kind=dp) :: var_custom_dp
+```
+The conversion doesn't work properly on these kinds of variables. 
+
+2. Once a variable is declared as type(hyperdual), type conversions and some initial declarations won't work. For example:
+```Fortran
+! original:
+int :: a
+real :: a_real
+a = 1
+a_real = real(a)
+```
+will be converted to 
+```Fortran
+! after type conversion by hyperdualize.py
+type(hyperdual) :: a
+type(hyperdual) :: a_real
+a = 1   ! will give an error because initialization after declaration won't automatically convert 1 to 1.0d0
+a_real = real(a) ! will give an error because conversion from hyperdual numbers to real numbers are not allowed
+```
+The user might still need to manually convert parts of their code. These errors can easily be found during compilation. 
+
 ---
 
 
