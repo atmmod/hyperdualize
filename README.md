@@ -89,7 +89,7 @@ will be converted to
 type(hyperdual) :: a
 type(hyperdual) :: a_real
 a = 1   ! will give an error because initialization after declaration won't automatically convert 1 to 1.0d0
-a_real = real(a) ! will give an error because conversion from hyperdual numbers to real numbers are not allowed
+a_real = real(a) ! will give an error because conversions from hyperdual numbers to real numbers are not allowed
 ```
 The user might still need to manually convert parts of their code. These errors can easily be found during compilation. 
 
